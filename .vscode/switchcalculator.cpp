@@ -1,0 +1,17 @@
+#include<iostream
+using namespace std;
+
+int main(){
+    int n1;
+    cin >> n1;
+    int n2;
+    char op;
+    cin >> op;
+    cin >> n2;
+
+    switch(op){
+        case '+':
+            cout << n1+n2 <<endl;
+
+    }
+}
