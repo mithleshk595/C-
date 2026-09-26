@@ -1,19 +1,16 @@
 #include<iostream>
 using namespace std;
-
 class A {
-	public:
-		int x;
-		
-		void set(int x){
-			this->x=x;
-			
-		}		
+public:
+    static int count;
+
+    static void show() {
+        cout << count;
+    }
 };
+
+int A::count = 7;
+
 int main() {
-	A a;
-	a.set(25);
-	
-	cout<< a.x;
-	
+    A::show();
 }
