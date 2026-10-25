@@ -1,26 +1,28 @@
 #include <iostream>
 using namespace std;
 
-class Product {
-    int id;
-    double price;
-
+class Base {
 public:
-    Product(int _id, double _price)
-        : id(_id), price(_price) {}
+    virtual ~Base() {}
+};
 
-    void updatePrice(double p) const {
-        (const_cast<Product*>(this))->price = p;
-    }
-
-    void showInfo() const {
-        cout << id << " : " << price;
+class Derived : public Base {
+public:
+    void show() {
+        cout << "Derived";
     }
 };
 
 int main() {
-    const Product p(101, 499.99);
-    p.updatePrice(549.99);
-    p.showInfo();
+    Base obj;
+    Base* p = &obj;
+
+    Derived* d = dynamic_cast<Derived*>(p);
+
+    if (d == nullptr)
+        cout << "Failed";
+    else
+        d->show();
+
     return 0;
 }
